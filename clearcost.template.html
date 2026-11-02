@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Clearcost · what New York hospitals actually charge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Expanded:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    color-scheme: light dark;
+    --paper:#ECEEED; --surface:#F6F7F6; --raise:#FFFFFF;
+    --ink:#15191C; --ink-2:#4B555A; --ink-3:#879397;
+    --rule:#D0D6D4; --rule-2:#B7C0BD;
+    --red:#BE3317; --red-wash:#F0DBD4;
+    --green:#2C7A4A; --green-wash:#D9EADE;
+    --amber:#9C6A0B;
+    --stamp:#15191C;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+    --paper:#111416; --surface:#181C1F; --raise:#1E2327;
+    --ink:#E7EAE8; --ink-2:#A3ACA9; --ink-3:#6B7571;
+    --rule:#262B2E; --rule-2:#363D40;
+    --red:#E26B4E; --red-wash:#331E18;
+    --green:#5CB183; --green-wash:#15291E;
+    --amber:#D29A3E;
+    --stamp:#E7EAE8;
+  }}
+  :root[data-theme="dark"]{
+    --paper:#111416; --surface:#181C1F; --raise:#1E2327;
+    --ink:#E7EAE8; --ink-2:#A3ACA9; --ink-3:#6B7571;
+    --rule:#262B2E; --rule-2:#363D40;
+    --red:#E26B4E; --red-wash:#331E18;
+    --green:#5CB183; --green-wash:#15291E;
+    --amber:#D29A3E;
+    --stamp:#E7EAE8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Archivo",system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:60;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px;}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+  .disp{font-family:"Archivo Expanded","Archivo",sans-serif;}
+
+  /* header: a statement masthead with a double rule */
+  header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--surface);border-bottom:3px double var(--rule-2);}
+  .site-inner{display:flex;align-items:center;gap:14px;height:58px;}
+  .brand{display:flex;align-items:baseline;gap:11px;text-decoration:none;color:var(--ink);}
+  .brand .mark{font-family:"Archivo Expanded",sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:.14em;}
+  .brand .mark i{font-style:normal;color:var(--red);}
+  .brand .tag{font-size:.82rem;color:var(--ink-3);display:none;}
+  @media(min-width:720px){.brand .tag{display:inline;}}
+  .spacer{flex:1;}
+  .stamp{font-size:.72rem;font-weight:600;color:var(--ink-2);background:transparent;border:1px solid var(--rule-2);
+    padding:5px 9px;cursor:pointer;letter-spacing:.02em;}
+  .stamp:hover{border-color:var(--ink-2);color:var(--ink);}
+  .tbtn{border:1px solid var(--rule-2);background:transparent;color:var(--ink-2);height:32px;padding:0 10px;cursor:pointer;font:inherit;font-size:.8rem;}
+  .tbtn:hover{color:var(--ink);border-color:var(--ink-2);}
+
+  /* hero */
+  .hero{padding:48px 0 8px;}
+  .kicker{font-size:.82rem;color:var(--red);font-weight:600;margin:0 0 14px;letter-spacing:.02em;}
+  .hero h1{font-family:"Archivo Expanded",sans-serif;font-weight:800;
+    font-size:clamp(2rem,1.2rem+3.4vw,3.4rem);line-height:1.0;letter-spacing:-.015em;margin:0 0 16px;max-width:15ch;}
+  .hero p.lede{color:var(--ink-2);font-size:1.03rem;max-width:62ch;margin:0 0 30px;}
+
+  /* search: a ruled entry line, no boxed card */
+  .searchbar{position:relative;max-width:640px;}
+  .field{display:flex;align-items:center;gap:12px;border-bottom:2.5px solid var(--ink);padding:6px 2px;}
+  .field svg{flex:none;color:var(--ink-2);}
+  #search{flex:1;border:0;background:transparent;color:var(--ink);font:inherit;font-size:1.15rem;padding:8px 0;outline:none;min-width:0;}
+  #search::placeholder{color:var(--ink-3);}
+  .area{border:0;background:transparent;color:var(--ink);font:inherit;font-weight:600;padding:8px 2px;cursor:pointer;outline:none;border-left:1px solid var(--rule-2);padding-left:12px;}
+  .suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:var(--raise);border:1px solid var(--rule-2);
+    box-shadow:0 14px 36px rgba(0,0,0,.12);overflow:hidden;display:none;max-height:340px;overflow-y:auto;}
+  .suggest.open{display:block;}
+  .suggest button{display:flex;width:100%;align-items:baseline;justify-content:space-between;gap:12px;background:transparent;border:0;
+    border-bottom:1px solid var(--rule);text-align:left;padding:12px 15px;cursor:pointer;color:var(--ink);font:inherit;}
+  .suggest button:last-child{border-bottom:0;}
+  .suggest button:hover,.suggest button.active{background:var(--surface);}
+  .suggest .s-name{font-weight:500;}
+  .suggest .s-code{font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--ink-3);}
+
+  .quick{margin-top:18px;font-size:.9rem;color:var(--ink-3);}
+  .quick b{font-weight:600;color:var(--ink-2);margin-right:6px;}
+  .quick button{font:inherit;font-size:.9rem;color:var(--ink);cursor:pointer;background:transparent;border:0;border-bottom:1px solid var(--rule-2);padding:2px 0;margin-right:16px;}
+  .quick button:hover{border-color:var(--red);color:var(--red);}
+
+  /* result */
+  .result{margin:40px 0 0;display:none;}
+  .result.show{display:block;}
+  .result.show .reveal{animation:fade .45s ease both;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  @media(prefers-reduced-motion:reduce){.result.show .reveal{animation:none;}}
+
+  .r-top{border-top:3px double var(--rule-2);padding-top:22px;}
+  .r-name{font-family:"Archivo Expanded",sans-serif;font-weight:700;font-size:1.6rem;letter-spacing:-.01em;margin:0 0 4px;line-height:1.08;}
+  .r-code{font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--ink-2);}
+
+  /* verdict */
+  .verdict{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 30px;margin:26px 0 22px;}
+  .mult{font-family:"Archivo Expanded",sans-serif;font-weight:800;font-size:clamp(3rem,2rem+6vw,5.4rem);line-height:.82;color:var(--red);letter-spacing:-.02em;}
+  .mult small{font-size:.3em;font-weight:700;letter-spacing:0;vertical-align:baseline;}
+  .verdict .say{font-size:1rem;color:var(--ink-2);max-width:40ch;padding-bottom:6px;}
+  .verdict .say b{color:var(--ink);font-weight:600;}
+  .verdict .say .lo{color:var(--green);font-weight:600;}
+  .verdict .say .hi{color:var(--red);font-weight:600;}
+
+  .sys-note{font-size:.9rem;color:var(--ink-2);border-left:3px solid var(--amber);padding:8px 0 8px 14px;margin:0 0 26px;background:transparent;}
+
+  /* toggle: understated ledger tabs */
+  .tabs{display:flex;gap:22px;border-bottom:1px solid var(--rule);margin-bottom:6px;}
+  .tabs button{font:inherit;font-size:.92rem;background:transparent;border:0;border-bottom:2px solid transparent;color:var(--ink-3);cursor:pointer;padding:8px 0;margin-bottom:-1px;}
+  .tabs button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink);font-weight:600;}
+  .tabs .unit{margin-left:auto;align-self:center;font-size:.78rem;color:var(--ink-3);}
+
+  /* statement rows */
+  .statement{margin-top:4px;}
+  .srow{padding:15px 2px 13px;border-bottom:1px solid var(--rule);}
+  .srow .line{display:flex;align-items:baseline;gap:10px;}
+  .srow .nm{font-weight:600;font-size:1rem;}
+  .srow .dots{flex:1;border-bottom:1px dotted var(--rule-2);transform:translateY(-4px);min-width:16px;}
+  .srow .amt{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:1.12rem;white-space:nowrap;}
+  .srow.is-lo .amt{color:var(--green);} .srow.is-hi .amt{color:var(--red);}
+  .srow .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:5px;font-size:.8rem;color:var(--ink-3);}
+  .srow .tag{font-family:"IBM Plex Mono",monospace;}
+  .srow.is-lo .tag{color:var(--green);} .srow.is-hi .tag{color:var(--red);}
+  .pill{font-size:.64rem;font-weight:700;letter-spacing:.06em;padding:2px 7px;border:1px solid currentColor;margin-left:8px;vertical-align:1px;}
+  .pill.lo{color:var(--green);} .pill.hi{color:var(--red);}
+  .srow .bar{height:3px;background:var(--rule);margin-top:10px;}
+  .srow .bar>i{display:block;height:100%;}
+  .srow.is-lo .bar>i{background:var(--green);} .srow.is-hi .bar>i{background:var(--red);}
+  .srow .bar>i{background:var(--ink-2);}
+  .srow .rng{font-family:"IBM Plex Mono",monospace;color:var(--ink-3);}
+
+  .empty{padding:50px 10px;color:var(--ink-2);}
+  .empty .big{font-family:"Archivo Expanded",sans-serif;font-size:1.3rem;color:var(--ink);margin-bottom:8px;}
+
+  /* notes */
+  .notes{margin:46px 0;padding-top:24px;border-top:3px double var(--rule-2);}
+  .notes h3{font-family:"Archivo Expanded",sans-serif;font-weight:700;font-size:1.2rem;margin:0 0 14px;}
+  .notes p{color:var(--ink-2);font-size:.92rem;margin:0 0 13px;max-width:74ch;}
+  .notes ol{color:var(--ink-2);font-size:.92rem;padding-left:20px;margin:0 0 13px;}
+  .notes li{margin-bottom:7px;}
+  .notes code{font-family:"IBM Plex Mono",monospace;background:var(--surface);border:1px solid var(--rule);padding:1px 6px;font-size:.84em;}
+  a{color:var(--red);text-underline-offset:2px;}
+  footer.foot{border-top:1px solid var(--rule);padding:20px 0 42px;color:var(--ink-3);font-size:.82rem;}
+
+  .modal-bg{position:fixed;inset:0;background:rgba(10,12,13,.55);display:none;place-items:center;z-index:100;padding:20px;}
+  .modal-bg.open{display:grid;}
+  .modal{background:var(--raise);border:1px solid var(--rule-2);max-width:560px;width:100%;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.3);}
+  .modal h3{font-family:"Archivo Expanded",sans-serif;margin:0 0 14px;font-size:1.25rem;}
+  .modal p{color:var(--ink-2);font-size:.92rem;margin:0 0 13px;}
+  .modal code{font-family:"IBM Plex Mono",monospace;font-size:.84em;background:var(--surface);padding:1px 6px;}
+  .modal .close{margin-top:6px;background:var(--ink);color:var(--paper);border:0;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap site-inner">
+    <a class="brand" href="#"><span class="mark">CLEAR<i>COST</i></span><span class="tag">what New York hospitals actually charge</span></a>
+    <span class="spacer"></span>
+    <button class="stamp" id="dataChip">based on public CMS filings</button>
+    <button class="tbtn" id="themeBtn" aria-label="Toggle light or dark">Dark</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Hospital price transparency, made readable</p>
+    <h1>Same scan, same city, wildly different price.</h1>
+    <p class="lede">Every U.S. hospital has to publish its prices, but the files are so large and messy that almost no one can read them. Clearcost parses the real filings from nine New York hospitals and lays one procedure next to itself across all of them. Search below to see the gap.</p>
+    <div class="searchbar">
+      <div class="field">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="search" type="text" placeholder="Search a procedure or code, like MRI or 70551" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="suggest" aria-label="Search procedure" />
+        <select class="area" id="areaSel" aria-label="Filter by area"><option value="">All areas</option></select>
+      </div>
+      <div class="suggest" id="suggest" role="listbox"></div>
+    </div>
+    <div class="quick" id="quick"><b>Try</b></div>
+  </section>
+
+  <section class="result" id="result" aria-live="polite"></section>
+
+  <section class="empty" id="empty">
+    <div class="big">Search a procedure to see the price gap.</div>
+    <div>Or pick one of the suggestions above.</div>
+  </section>
+
+  <section class="notes">
+    <h3>How this works, and an honest note on the numbers</h3>
+    <p>Since 2021, federal rule 45 CFR 180.50 has required every U.S. hospital to publish a machine-readable file of its standard charges: the gross price, the discounted cash price, and the rates it has negotiated with insurers. The intent was that patients could compare. The reality is that the files run to hundreds of thousands of rows, sit in different formats at every hospital, and are effectively unreadable. Closing that gap is the whole point of this tool.</p>
+    <p>These are real prices, parsed from the official filings that nine New York hospitals published in spring 2026: the Mount Sinai system (JSON files, around 130 to 150 MB each), NYU Langone (CSV files with 3,841 columns, around 470 MB each), and NewYork-Presbyterian (a 229 MB JSON covering several campuses). The parser streams each file, joins the same procedure across hospitals by its billing code, and reconciles the quirks real files throw at it.</p>
+    <p>Three things to keep in mind when reading the numbers:</p>
+    <ol>
+      <li>The default figure is the <b>cash price</b>, what someone paying cash is charged. For procedures where a hospital leaves that blank (many surgeries and deliveries), switch to the <b>insurer rate</b> tab.</li>
+      <li>Hospitals in the same system share one price list, so every Mount Sinai campus shows the same cash price and every NYU campus shows the same cash price. The real gap is between systems, and that uniformity is itself a finding.</li>
+      <li>The insurer range reflects what different plans pay; its high end can include outlier or case-rate contracts, so treat the range as indicative rather than a quote for your plan.</li>
+    </ol>
+    <p>To refresh or extend it, drop new hospital files into the data folder and re-run the parser. Format and schema: <a href="https://github.com/CMSgov/hospital-price-transparency" target="_blank" rel="noopener">the CMS reference on GitHub</a>.</p>
+  </section>
+</main>
+
+<footer class="foot wrap">Clearcost. Real prices parsed from nine New York hospitals&rsquo; CMS filings, spring 2026. A research prototype, not billing advice.</footer>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <h3 id="mTitle">About these prices</h3>
+    <p>These are <b>real figures</b>, parsed from the official machine-readable files that nine New York hospitals (Mount Sinai, NYU Langone, NewYork-Presbyterian) published in spring 2026 under federal rule 45 CFR 180.50.</p>
+    <p>The default comparison is the <b>cash price</b>. Where that is blank, use the <b>insurer rate</b> tab. Hospitals within one system share a price list, so the real gap is between systems. The insurer range can include outlier plans, so read it as indicative. This is a research prototype, not medical or billing advice, and not a quote for your insurance.</p>
+    <button class="close" id="modalClose">Close</button>
+  </div>
+</div>
+
+<script>
+const DATA = __DATA__;
+const HById = Object.fromEntries(DATA.hospitals.map(h=>[h.id,h]));
+const fmt = n => n==null ? "n/a" : "$" + Math.round(n).toLocaleString("en-US");
+const $ = s => document.querySelector(s);
+
+let selected=null, mode="cash", activeSuggest=-1;
+const searchEl=$("#search"), areaSel=$("#areaSel"), suggestEl=$("#suggest");
+const resultEl=$("#result"), emptyEl=$("#empty"), quickEl=$("#quick");
+
+/* area options */
+[...new Set(DATA.hospitals.map(h=>h.borough).filter(Boolean))].sort().forEach(s=>{
+  const o=document.createElement("option");o.value=s;o.textContent=s;areaSel.appendChild(o);
+});
+
+/* quick picks */
+["70551","45378","74177","66984","77067"].forEach(code=>{
+  const p=DATA.procedures.find(x=>String(x.code)===code); if(!p)return;
+  const b=document.createElement("button");
+  b.textContent=p.label.replace(/\s*\(.*?\)/,"");
+  b.onclick=()=>select(p); quickEl.appendChild(b);
+});
+
+function sysOf(name){
+  if(/mount sinai/i.test(name)) return "Mount Sinai";
+  if(/nyu/i.test(name)) return "NYU Langone";
+  if(/presbyterian/i.test(name)) return "NewYork-Presbyterian";
+  return name;
+}
+function priceOf(o){ return mode==="cash" ? o.cash : (o.min_neg!=null ? o.min_neg : null); }
+function offersFor(p){
+  const area=areaSel.value;
+  return p.offers.map(o=>({...o,h:HById[o.hospital_id]}))
+    .filter(o=> !area || o.h.borough===area)
+    .filter(o=> priceOf(o)!=null);
+}
+
+function matches(q){
+  q=q.trim().toLowerCase(); if(!q)return [];
+  return DATA.procedures.filter(p=>
+    p.label.toLowerCase().includes(q) || String(p.code).toLowerCase().includes(q)
+    || (p.code_type+" "+p.code).toLowerCase().includes(q)
+  ).slice(0,8);
+}
+function renderSuggest(){
+  const res=matches(searchEl.value); activeSuggest=-1;
+  if(!res.length){suggestEl.classList.remove("open");searchEl.setAttribute("aria-expanded","false");return;}
+  suggestEl.innerHTML=res.map((p,i)=>
+    `<button role="option" data-key="${p.key}" data-i="${i}"><span class="s-name">${p.label}</span><span class="s-code">${p.code_type} ${p.code}</span></button>`).join("");
+  suggestEl.querySelectorAll("button").forEach(b=>b.onclick=()=>select(DATA.procedures.find(p=>p.key===b.dataset.key)));
+  suggestEl.classList.add("open"); searchEl.setAttribute("aria-expanded","true");
+}
+searchEl.addEventListener("input",renderSuggest);
+searchEl.addEventListener("focus",renderSuggest);
+searchEl.addEventListener("keydown",e=>{
+  const btns=[...suggestEl.querySelectorAll("button")]; if(!btns.length)return;
+  if(e.key==="ArrowDown"){e.preventDefault();activeSuggest=Math.min(activeSuggest+1,btns.length-1);}
+  else if(e.key==="ArrowUp"){e.preventDefault();activeSuggest=Math.max(activeSuggest-1,0);}
+  else if(e.key==="Enter"){e.preventDefault();(btns[activeSuggest]||btns[0]).click();return;}
+  else if(e.key==="Escape"){suggestEl.classList.remove("open");return;}
+  btns.forEach((b,i)=>b.classList.toggle("active",i===activeSuggest));
+});
+document.addEventListener("click",e=>{if(!e.target.closest(".searchbar"))suggestEl.classList.remove("open");});
+areaSel.addEventListener("change",()=>{if(selected)select(selected);});
+
+function tabsHtml(){
+  return `<div class="tabs" role="group" aria-label="Price type">
+    <button id="mCash" aria-pressed="${mode==='cash'}">Cash price</button>
+    <button id="mNeg" aria-pressed="${mode==='neg'}">Insurer rate</button>
+    <span class="unit">${mode==='cash'?'discounted cash price':'lowest negotiated rate'}</span>
+  </div>`;
+}
+function wireTabs(p){
+  const c=$("#mCash"), n=$("#mNeg");
+  if(c)c.onclick=()=>{mode="cash";select(p);};
+  if(n)n.onclick=()=>{mode="neg";select(p);};
+}
+
+function select(p){
+  selected=p; searchEl.value=p.label; suggestEl.classList.remove("open"); emptyEl.style.display="none"; saveState();
+  const offers=offersFor(p).sort((a,b)=>priceOf(a)-priceOf(b));
+
+  if(offers.length<2){
+    resultEl.innerHTML=`<div class="reveal">
+      <div class="r-top"><div class="r-name">${p.label}</div><div class="r-code">${p.code_type} ${p.code}</div></div>
+      ${tabsHtml()}
+      <div class="empty"><div class="big">No ${mode==='cash'?'cash price':'insurer rate'} comparison available here</div>
+      <div>Switch the tab above, or choose All areas. Many hospitals leave the cash price blank for surgeries and deliveries, where the insurer rate is usually present.</div></div>
+    </div>`;
+    resultEl.classList.add("show"); wireTabs(p); return;
+  }
+
+  const prices=offers.map(priceOf);
+  const minP=prices[0], maxP=prices[prices.length-1];
+  const lo=offers[0], hi=offers[offers.length-1];
+  const mult=maxP/minP;
+  const distinct=new Set(prices.map(v=>Math.round(v))).size;
+  const systems=new Set(offers.map(o=>sysOf(o.h.name))).size;
+
+  let sysNote="";
+  if(distinct<offers.length && systems>1){
+    sysNote=`<div class="sys-note reveal">These ${offers.length} hospitals post only ${distinct} different prices. Within a system the price is identical, so the gap you see is the gap between systems.</div>`;
+  }
+
+  const flat = mult < 1.05;
+  const say = flat
+    ? `These hospitals charge about the same here, close to <b>${fmt(minP)}</b> across the board.`
+    : `From <span class="lo">${fmt(minP)}</span> at ${lo.h.name} to <span class="hi">${fmt(maxP)}</span> at ${hi.h.name}. That is a gap of <b>${fmt(maxP-minP)}</b> for the same ${p.code_type} ${p.code}.`;
+  resultEl.innerHTML=`<div class="reveal">
+    <div class="r-top"><div class="r-name">${p.label}</div><div class="r-code">${p.code_type} ${p.code}, across ${offers.length} hospitals</div></div>
+    <div class="verdict">
+      <div class="mult" style="color:${flat?'var(--ink)':'var(--red)'}">${mult.toFixed(1)}<small>&times;</small></div>
+      <div class="say">${say}</div>
+    </div>
+    ${sysNote}
+    ${tabsHtml()}
+    <div class="statement" id="statement"></div>
+  </div>`;
+  resultEl.classList.add("show"); wireTabs(p);
+  renderStatement(offers,minP,maxP);
+  resultEl.scrollIntoView({behavior:prefersReduced()?"auto":"smooth",block:"start"});
+}
+
+function renderStatement(offers,minP,maxP){
+  $("#statement").innerHTML=offers.map(o=>{
+    const price=priceOf(o), m=price/minP;
+    const cls = price===minP ? "is-lo" : price===maxP ? "is-hi" : "";
+    const w=Math.max(3,Math.round((price/maxP)*100));
+    let pill="";
+    if(price===minP) pill=`<span class="pill lo">lowest</span>`;
+    else if(price===maxP) pill=`<span class="pill hi">highest</span>`;
+    let rng="";
+    if(o.min_neg!=null && o.max_neg!=null){
+      rng = o.min_neg===o.max_neg ? `insurers pay ${fmt(o.min_neg)}` : `insurers pay ${fmt(o.min_neg)} to ${fmt(o.max_neg)}`;
+    } else if(o.gross!=null){ rng=`list price ${fmt(o.gross)}`; }
+    return `<div class="srow ${cls}">
+      <div class="line"><span class="nm">${o.h.name}${pill}</span><span class="dots"></span><span class="amt">${fmt(price)}</span></div>
+      <div class="meta"><span>${[o.h.borough,o.h.type].filter(Boolean).join(", ")}</span><span class="tag">${m.toFixed(1)}&times; lowest</span></div>
+      <div class="bar"><i style="width:${w}%"></i></div>
+      ${rng?`<div class="meta"><span class="rng">${rng}</span></div>`:""}
+    </div>`;
+  }).join("");
+}
+
+function prefersReduced(){return window.matchMedia("(prefers-reduced-motion: reduce)").matches;}
+
+/* theme */
+const root=document.documentElement, themeBtn=$("#themeBtn");
+function applyTheme(t){
+  if(t)root.setAttribute("data-theme",t);else root.removeAttribute("data-theme");
+  const dark=(t==="dark")||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);
+  themeBtn.textContent=dark?"Light":"Dark";
+}
+themeBtn.onclick=()=>{
+  const cur=root.getAttribute("data-theme");
+  const dark=(cur==="dark")||(!cur&&window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const next=dark?"light":"dark"; applyTheme(next);
+  try{localStorage.setItem("cc_theme",next);}catch(e){}
+};
+
+/* persist */
+function saveState(){try{localStorage.setItem("cc_last",JSON.stringify({key:selected?.key,area:areaSel.value,mode}));}catch(e){}}
+function restore(){
+  try{
+    const t=localStorage.getItem("cc_theme"); applyTheme(t||null);
+    const raw=localStorage.getItem("cc_last");
+    if(raw){const s=JSON.parse(raw);
+      if(s.mode)mode=s.mode;
+      if(s.area)areaSel.value=s.area;
+      const p=DATA.procedures.find(x=>x.key===s.key); if(p){select(p);return;}}
+  }catch(e){applyTheme(null);}
+  const def=DATA.procedures.find(p=>String(p.code)==="70551")||DATA.procedures[0];
+  if(def)select(def);
+}
+
+const modalBg=$("#modalBg");
+$("#dataChip").onclick=()=>modalBg.classList.add("open");
+$("#modalClose").onclick=()=>modalBg.classList.remove("open");
+modalBg.onclick=e=>{if(e.target===modalBg)modalBg.classList.remove("open");};
+
+restore();
+</script>
+</body>
+</html>

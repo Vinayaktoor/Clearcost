@@ -1,0 +1,15 @@
+# raw hospital machine-readable files are large; keep them out of git
+data/mrfs/*
+!data/mrfs/.gitkeep
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# os / editor
+.DS_Store
+*.crdownload
+.idea/
+.vscode/

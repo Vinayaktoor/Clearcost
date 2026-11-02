@@ -1,0 +1,1288 @@
+{
+  "generated_from": "hospital prices",
+  "hospital_count": 9,
+  "procedure_count": 18,
+  "hospitals": [
+    {
+      "id": "h1",
+      "name": "The Mount Sinai Hospital",
+      "borough": "Manhattan",
+      "type": "academic",
+      "state": "NY"
+    },
+    {
+      "id": "h2",
+      "name": "Mount Sinai Queens",
+      "borough": "Queens",
+      "type": "community",
+      "state": "NY"
+    },
+    {
+      "id": "h3",
+      "name": "NewYork-Presbyterian",
+      "borough": "Manhattan",
+      "type": "academic",
+      "state": "NY"
+    },
+    {
+      "id": "h4",
+      "name": "NYU Langone Long Island",
+      "borough": "Long Island",
+      "type": "community",
+      "state": "NY"
+    },
+    {
+      "id": "h5",
+      "name": "NYU Langone Suffolk",
+      "borough": "Suffolk",
+      "type": "community",
+      "state": "NY"
+    },
+    {
+      "id": "h6",
+      "name": "NYU Langone Brooklyn",
+      "borough": "Brooklyn",
+      "type": "community",
+      "state": "NY"
+    },
+    {
+      "id": "h7",
+      "name": "NYU Langone Orthopedic",
+      "borough": "Manhattan",
+      "type": "specialty",
+      "state": "NY"
+    },
+    {
+      "id": "h8",
+      "name": "NYU Langone (Tisch)",
+      "borough": "Manhattan",
+      "type": "academic",
+      "state": "NY"
+    },
+    {
+      "id": "h9",
+      "name": "Mount Sinai Brooklyn",
+      "borough": "Brooklyn",
+      "type": "community",
+      "state": "NY"
+    }
+  ],
+  "procedures": [
+    {
+      "key": "CPT:80048",
+      "label": "Basic metabolic panel (blood test)",
+      "code": "80048",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 121.5,
+          "gross": 135.0,
+          "min_neg": 3.34,
+          "max_neg": 50.7
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 121.5,
+          "gross": 135.0,
+          "min_neg": 0.01,
+          "max_neg": 32.74
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": 97.5,
+          "gross": 130.0,
+          "min_neg": 5.92,
+          "max_neg": 435.89
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 10.15,
+          "gross": 264.6,
+          "min_neg": 7.32,
+          "max_neg": 515.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 10.15,
+          "gross": 515.0,
+          "min_neg": 7.32,
+          "max_neg": 515.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 10.15,
+          "gross": 178.89,
+          "min_neg": 7.32,
+          "max_neg": 515.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 10.15,
+          "gross": 178.89,
+          "min_neg": 7.32,
+          "max_neg": 515.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 10.15,
+          "gross": 178.89,
+          "min_neg": 7.32,
+          "max_neg": 515.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 121.5,
+          "gross": 135.0,
+          "min_neg": 0.01,
+          "max_neg": 32.74
+        }
+      ]
+    },
+    {
+      "key": "CPT:74177",
+      "label": "CT, abdomen & pelvis (with contrast)",
+      "code": "74177",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 3960.0,
+          "gross": 4400.0,
+          "min_neg": 278.43,
+          "max_neg": 2271.08
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 3960.0,
+          "gross": 4400.0,
+          "min_neg": 82.9,
+          "max_neg": 1243.25
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": 2646.75,
+          "gross": 3529.0,
+          "min_neg": 318.0,
+          "max_neg": 3317.26
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 1567.8724,
+          "gross": 8251.96,
+          "min_neg": 226.37,
+          "max_neg": 10984.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 2086.96,
+          "gross": 10984.0,
+          "min_neg": 226.37,
+          "max_neg": 10984.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 1567.8724,
+          "gross": 8251.96,
+          "min_neg": 226.37,
+          "max_neg": 10984.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 1567.8724,
+          "gross": 8251.96,
+          "min_neg": 226.37,
+          "max_neg": 10984.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 1567.8724,
+          "gross": 8251.96,
+          "min_neg": 226.37,
+          "max_neg": 10984.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 3960.0,
+          "gross": 4400.0,
+          "min_neg": 211.5,
+          "max_neg": 2202.69
+        }
+      ]
+    },
+    {
+      "key": "CPT:66984",
+      "label": "Cataract surgery (with lens implant)",
+      "code": "66984",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 766.0,
+          "max_neg": 9300.0
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 595.63,
+          "max_neg": 7867.0
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 2563.85,
+          "max_neg": 13583.76
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1112.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1112.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1112.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1112.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1112.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 766.0,
+          "max_neg": 8994.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:59510",
+      "label": "Cesarean delivery (global care)",
+      "code": "59510",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 3000.0,
+          "max_neg": 34289.0
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 2239.79,
+          "max_neg": 3000.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 3000.0,
+          "max_neg": 3000.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:45378",
+      "label": "Colonoscopy (diagnostic)",
+      "code": "45378",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 3060.0,
+          "gross": 3400.0,
+          "min_neg": 232.0,
+          "max_neg": 8028.0
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 3060.0,
+          "gross": 3400.0,
+          "min_neg": 150.6,
+          "max_neg": 6144.0
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1024.89,
+          "max_neg": 12700.68
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 351.709,
+          "gross": 1851.1,
+          "min_neg": 436.98,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 351.709,
+          "gross": 1851.1,
+          "min_neg": 436.98,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 351.709,
+          "gross": 1851.1,
+          "min_neg": 436.98,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 351.709,
+          "gross": 1851.1,
+          "min_neg": 436.98,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 351.709,
+          "gross": 1851.1,
+          "min_neg": 436.98,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 3060.0,
+          "gross": 3400.0,
+          "min_neg": 232.0,
+          "max_neg": 5359.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:80053",
+      "label": "Comprehensive metabolic panel (blood test)",
+      "code": "80053",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 189.0,
+          "gross": 210.0,
+          "min_neg": 4.99,
+          "max_neg": 75.86
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 189.0,
+          "gross": 210.0,
+          "min_neg": 0.01,
+          "max_neg": 40.87
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": 96.75,
+          "gross": 129.0,
+          "min_neg": 7.39,
+          "max_neg": 435.89
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 12.67,
+          "gross": 940.8,
+          "min_neg": 9.5,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 12.67,
+          "gross": 900.0,
+          "min_neg": 9.5,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 12.67,
+          "gross": 325.51,
+          "min_neg": 9.5,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 12.67,
+          "gross": 325.51,
+          "min_neg": 9.5,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 12.67,
+          "gross": 325.51,
+          "min_neg": 9.5,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 189.0,
+          "gross": 210.0,
+          "min_neg": 0.01,
+          "max_neg": 40.87
+        }
+      ]
+    },
+    {
+      "key": "CPT:93306",
+      "label": "Echocardiogram (complete, with Doppler)",
+      "code": "93306",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 3280.5,
+          "gross": 3645.0,
+          "min_neg": 206.9,
+          "max_neg": 1232.64
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 3280.5,
+          "gross": 3645.0,
+          "min_neg": 65.78,
+          "max_neg": 682.08
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": 1746.75,
+          "gross": 2329.0,
+          "min_neg": 250.0,
+          "max_neg": 2189.26
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 660.3355,
+          "gross": 3475.45,
+          "min_neg": 133.02,
+          "max_neg": 3475.45
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 660.3355,
+          "gross": 3475.45,
+          "min_neg": 133.02,
+          "max_neg": 3475.45
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 628.8905,
+          "gross": 3309.95,
+          "min_neg": 133.02,
+          "max_neg": 3475.45
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 628.8905,
+          "gross": 3309.95,
+          "min_neg": 133.02,
+          "max_neg": 3475.45
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 628.8905,
+          "gross": 3309.95,
+          "min_neg": 133.02,
+          "max_neg": 3475.45
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 3280.5,
+          "gross": 3645.0,
+          "min_neg": 250.0,
+          "max_neg": 781.42
+        }
+      ]
+    },
+    {
+      "key": "CPT:93000",
+      "label": "Electrocardiogram (EKG, complete)",
+      "code": "93000",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 32.0,
+          "max_neg": 32.0
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 15.94,
+          "max_neg": 32.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 32.0,
+          "max_neg": 32.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:49505",
+      "label": "Inguinal hernia repair",
+      "code": "49505",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 513.0,
+          "max_neg": 10944.0
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 504.48,
+          "max_neg": 9615.0
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 2747.2,
+          "max_neg": 15678.0
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1529.85,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1529.85,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1529.85,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1529.85,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1529.85,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 513.0,
+          "max_neg": 7839.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:29881",
+      "label": "Knee arthroscopy (with meniscus repair)",
+      "code": "29881",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 686.0,
+          "max_neg": 10944.0
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 521.39,
+          "max_neg": 9615.0
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 2418.63,
+          "max_neg": 14739.08
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1431.23,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1431.23,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1431.23,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1431.23,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1431.23,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 686.0,
+          "max_neg": 7839.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:70551",
+      "label": "MRI, brain (no contrast)",
+      "code": "70551",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 4860.0,
+          "gross": 5400.0,
+          "min_neg": 297.84,
+          "max_neg": 2513.6
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 4860.0,
+          "gross": 5400.0,
+          "min_neg": 67.72,
+          "max_neg": 571.0
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": 4034.25,
+          "gross": 5379.0,
+          "min_neg": 271.73,
+          "max_neg": 5056.26
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 1633.5554,
+          "gross": 8597.66,
+          "min_neg": 135.26,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 1633.5554,
+          "gross": 8597.66,
+          "min_neg": 135.26,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 1042.7998,
+          "gross": 5488.42,
+          "min_neg": 135.26,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 1042.7998,
+          "gross": 5488.42,
+          "min_neg": 135.26,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 1042.7998,
+          "gross": 5488.42,
+          "min_neg": 135.26,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 4860.0,
+          "gross": 5400.0,
+          "min_neg": 150.67,
+          "max_neg": 571.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:72148",
+      "label": "MRI, lower spine (no contrast)",
+      "code": "72148",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 3523.5,
+          "gross": 3915.0,
+          "min_neg": 297.84,
+          "max_neg": 2510.94
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 3523.5,
+          "gross": 3915.0,
+          "min_neg": 67.72,
+          "max_neg": 634.0
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": 4014.75,
+          "gross": 5353.0,
+          "min_neg": 271.73,
+          "max_neg": 5031.82
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 1381.8054,
+          "gross": 7272.66,
+          "min_neg": 130.72,
+          "max_neg": 7272.66
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 1381.8054,
+          "gross": 7272.66,
+          "min_neg": 130.72,
+          "max_neg": 7272.66
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 1133.7547,
+          "gross": 5967.13,
+          "min_neg": 130.72,
+          "max_neg": 7272.66
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 1133.7547,
+          "gross": 5967.13,
+          "min_neg": 130.72,
+          "max_neg": 7272.66
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 1133.7547,
+          "gross": 5967.13,
+          "min_neg": 130.72,
+          "max_neg": 7272.66
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 3523.5,
+          "gross": 3915.0,
+          "min_neg": 144.55,
+          "max_neg": 634.0
+        }
+      ]
+    },
+    {
+      "key": "MS-DRG:470",
+      "label": "Major hip / knee joint replacement (no complications)",
+      "code": "470",
+      "code_type": "MS-DRG",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "inpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 26775.92,
+          "max_neg": 75996.73
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "inpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 23897.16,
+          "max_neg": 55274.56
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "inpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 17240.75,
+          "max_neg": 148736.95
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "inpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 26775.92,
+          "max_neg": 70048.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:36415",
+      "label": "Routine blood draw",
+      "code": "36415",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 63.0,
+          "gross": 70.0,
+          "min_neg": 2.0,
+          "max_neg": 36.15
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 63.0,
+          "gross": 70.0,
+          "min_neg": 2.0,
+          "max_neg": 36.15
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": 31.5,
+          "gross": 42.0,
+          "min_neg": 1.54,
+          "max_neg": 485.05
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 10.91,
+          "gross": 45.93,
+          "min_neg": 2.0,
+          "max_neg": 12574.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 10.91,
+          "gross": 45.93,
+          "min_neg": 2.0,
+          "max_neg": 12574.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 10.91,
+          "gross": 45.93,
+          "min_neg": 2.0,
+          "max_neg": 12574.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 10.91,
+          "gross": 45.93,
+          "min_neg": 2.0,
+          "max_neg": 12574.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 10.91,
+          "gross": 45.93,
+          "min_neg": 2.0,
+          "max_neg": 12574.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 63.0,
+          "gross": 70.0,
+          "min_neg": 2.0,
+          "max_neg": 36.15
+        }
+      ]
+    },
+    {
+      "key": "CPT:77067",
+      "label": "Screening mammogram (both breasts)",
+      "code": "77067",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 720.0,
+          "gross": 800.0,
+          "min_neg": 59.93,
+          "max_neg": 817.64
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 720.0,
+          "gross": 800.0,
+          "min_neg": 34.4,
+          "max_neg": 638.3
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": 655.5,
+          "gross": 874.0,
+          "min_neg": 99.4,
+          "max_neg": 1100.78
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 283.1019,
+          "gross": 1490.01,
+          "min_neg": 96.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 283.1019,
+          "gross": 1490.01,
+          "min_neg": 96.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 283.1019,
+          "gross": 1490.01,
+          "min_neg": 96.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 283.1019,
+          "gross": 1490.01,
+          "min_neg": 96.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 283.1019,
+          "gross": 1490.01,
+          "min_neg": 96.98,
+          "max_neg": 25798.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 720.0,
+          "gross": 800.0,
+          "min_neg": 59.93,
+          "max_neg": 434.22
+        }
+      ]
+    },
+    {
+      "key": "CPT:43239",
+      "label": "Upper GI endoscopy (with biopsy)",
+      "code": "43239",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 2673.0,
+          "gross": 2970.0,
+          "min_neg": 174.0,
+          "max_neg": 8028.0
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 2673.0,
+          "gross": 2970.0,
+          "min_neg": 174.0,
+          "max_neg": 6144.0
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "outpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 1053.94,
+          "max_neg": 12700.68
+        },
+        {
+          "hospital_id": "h4",
+          "setting": "both",
+          "cash": 278.2341,
+          "gross": 1464.39,
+          "min_neg": 446.75,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h5",
+          "setting": "both",
+          "cash": 278.2341,
+          "gross": 1464.39,
+          "min_neg": 446.75,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h6",
+          "setting": "both",
+          "cash": 278.2341,
+          "gross": 1464.39,
+          "min_neg": 446.75,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h7",
+          "setting": "both",
+          "cash": 278.2341,
+          "gross": 1464.39,
+          "min_neg": 446.75,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h8",
+          "setting": "both",
+          "cash": 278.2341,
+          "gross": 1464.39,
+          "min_neg": 446.75,
+          "max_neg": 13453.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 2673.0,
+          "gross": 2970.0,
+          "min_neg": 174.0,
+          "max_neg": 5359.0
+        }
+      ]
+    },
+    {
+      "key": "CPT:59400",
+      "label": "Vaginal delivery (global care)",
+      "code": "59400",
+      "code_type": "CPT",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "both",
+          "cash": 3150.0,
+          "gross": 3500.0,
+          "min_neg": 3000.0,
+          "max_neg": 34289.0
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "both",
+          "cash": 3150.0,
+          "gross": 3500.0,
+          "min_neg": 2013.21,
+          "max_neg": 3000.0
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "both",
+          "cash": 3150.0,
+          "gross": 3500.0,
+          "min_neg": 3000.0,
+          "max_neg": 3000.0
+        }
+      ]
+    },
+    {
+      "key": "MS-DRG:807",
+      "label": "Vaginal delivery (no complications)",
+      "code": "807",
+      "code_type": "MS-DRG",
+      "offers": [
+        {
+          "hospital_id": "h1",
+          "setting": "inpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 9885.99,
+          "max_neg": 20536.13
+        },
+        {
+          "hospital_id": "h2",
+          "setting": "inpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 3721.58,
+          "max_neg": 8802.73
+        },
+        {
+          "hospital_id": "h3",
+          "setting": "inpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 6125.09,
+          "max_neg": 41225.56
+        },
+        {
+          "hospital_id": "h9",
+          "setting": "inpatient",
+          "cash": null,
+          "gross": null,
+          "min_neg": 2503.98,
+          "max_neg": 9885.99
+        }
+      ]
+    }
+  ]
+}
